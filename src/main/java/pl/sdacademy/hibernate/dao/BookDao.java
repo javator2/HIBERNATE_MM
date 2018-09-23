@@ -82,7 +82,7 @@ public class BookDao implements DaoInterface<Book> {
         return categoryQuery.getResultList();
     }
 
-    public Session openCurrentSession() {
+    public synchronized Session openCurrentSession() {
         if (currentSession == null) {
             currentSession = HibernateUtils.getSession();
             currentTransaction = currentSession.beginTransaction();

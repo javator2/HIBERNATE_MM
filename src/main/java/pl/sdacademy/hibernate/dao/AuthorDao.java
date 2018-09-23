@@ -20,7 +20,8 @@ public class AuthorDao implements DaoInterface<Author> {
 //            currentTransaction = currentSession.beginTransaction();
     }
 
-    public Session getCurrentSession() {
+    public synchronized Session getCurrentSession() {
+
         return currentSession;
     }
 
